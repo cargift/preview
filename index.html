@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Template Gallery · @foocl</title>
+    <!-- Google Fonts: Chewy -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chewy&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Chewy', cursive;
+            background-image: url('https://raw.githubusercontent.com/cargift/image/main/2e363cbf605420f0ff3c758c080fa75d.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        /* kontainer utama */
+        .gallery {
+            width: 100%;
+            max-width: 1000px; /* sedikit diperlebar untuk 5 ikon */
+            background-color: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 70px 70px 40px 40px;
+            padding: 40px 25px 50px 25px;
+            border: 5px solid white;
+            box-shadow: 0 25px 30px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        /* teks atas */
+        .main-title {
+            font-size: 3.2rem;
+            color: #1a3a4e;
+            text-shadow: 3px 3px 0 white;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .sub-title {
+            font-size: 2rem;
+            color: #2b4b5e;
+            background-color: rgba(255, 255, 255, 0.5);
+            display: inline-block;
+            padding: 8px 30px;
+            border-radius: 50px;
+            border: 3px solid white;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 0 rgba(0,0,0,0.05);
+        }
+
+        /* grid 5 ikon */
+        .icon-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr); /* berubah jadi 5 kolom */
+            gap: 15px;
+            margin: 30px 0 40px;
+            padding: 0 5px;
+        }
+
+        /* kartu ikon */
+        .icon-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            transition: transform 0.2s ease;
+        }
+
+        .icon-card:active {
+            transform: scale(0.95);
+        }
+
+        .icon-image {
+            width: 100%;
+            aspect-ratio: 1/1;
+            object-fit: contain;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 40px;
+            border: 5px solid white;
+            box-shadow: 0 10px 0 #aac9e0;
+            padding: 12px; /* sedikit dikurangi agar pas 5 kolom */
+            margin-bottom: 12px;
+        }
+
+        .icon-label {
+            font-size: 1.6rem; /* sedikit dikecilkan untuk 5 kolom */
+            color: #0f3d52;
+            background-color: rgba(255, 255, 255, 0.6);
+            padding: 5px 10px;
+            border-radius: 40px;
+            border: 3px solid white;
+            width: 100%;
+            text-align: center;
+            white-space: nowrap; /* mencegah teks turun */
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* watermark */
+        .watermark {
+            position: fixed;
+            bottom: 15px;
+            right: 20px;
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.7);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+            background-color: rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(2px);
+            padding: 6px 16px;
+            border-radius: 40px;
+            border: 1px solid rgba(255,255,255,0.3);
+            letter-spacing: 0.5px;
+            z-index: 100;
+        }
+
+        /* responsive */
+        @media (max-width: 750px) {
+            .icon-grid {
+                grid-template-columns: repeat(3, 1fr); /* 3 kolom dulu */
+                gap: 15px;
+            }
+            .icon-label { font-size: 1.5rem; }
+        }
+
+        @media (max-width: 600px) {
+            .gallery { padding: 30px 15px 40px; }
+            .main-title { font-size: 2.5rem; }
+            .sub-title { font-size: 1.6rem; }
+            .icon-grid { gap: 12px; }
+            .icon-label { font-size: 1.4rem; }
+        }
+
+        @media (max-width: 450px) {
+            .icon-grid {
+                grid-template-columns: repeat(2, 1fr); /* 2 kolom di HP kecil */
+                gap: 15px;
+            }
+            .main-title { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="gallery">
+        <!-- teks utama -->
+        <h1 class="main-title">(CONTOH TEMPLATE)</h1>
+        <div class="sub-title">click the icon</div>
+
+        <!-- grid 5 ikon -->
+        <div class="icon-grid">
+            <!-- ICON 1 - birthday1 -->
+            <a href="https://cargift.github.io/birthday1/" class="icon-card" target="_blank" rel="noopener noreferrer">
+                <img src="https://raw.githubusercontent.com/cargift/preview/main/Picsart_26-02-15_17-26-55-791.png" alt="birthday 1" class="icon-image" onerror="this.src='https://via.placeholder.com/150?text=Icon+1'">
+                <span class="icon-label">birthday 1</span>
+            </a>
+
+            <!-- ICON 2 - birthday2 -->
+            <a href="https://cargift.github.io/Birthday2/" class="icon-card" target="_blank" rel="noopener noreferrer">
+                <img src="https://raw.githubusercontent.com/cargift/preview/main/Picsart_26-02-15_17-27-23-487.png" alt="birthday 2" class="icon-image" onerror="this.src='https://via.placeholder.com/150?text=Icon+2'">
+                <span class="icon-label">birthday 2</span>
+            </a>
+
+            <!-- ICON 3 - bucin1 -->
+            <a href="https://cargift.github.io/Bucin1/" class="icon-card" target="_blank" rel="noopener noreferrer">
+                <img src="https://raw.githubusercontent.com/cargift/preview/main/Picsart_26-02-15_17-27-41-031.png" alt="bucin 1" class="icon-image" onerror="this.src='https://via.placeholder.com/150?text=Icon+3'">
+                <span class="icon-label">bucin 1</span>
+            </a>
+
+            <!-- ICON 4 - bucin2 -->
+            <a href="https://cargift.github.io/bucin2/" class="icon-card" target="_blank" rel="noopener noreferrer">
+                <img src="https://raw.githubusercontent.com/cargift/preview/main/Picsart_26-02-15_17-27-53-885.png" alt="bucin 2" class="icon-image" onerror="this.src='https://via.placeholder.com/150?text=Icon+4'">
+                <span class="icon-label">bucin 2</span>
+            </a>
+
+            <!-- ICON 5 - PUZZLE (TAMBAHAN BARU) -->
+            <a href="https://cargift.github.io/Puzzle/" class="icon-card" target="_blank" rel="noopener noreferrer">
+                <!-- GANTI URL IKON 5 DENGAN LINK GAMBAR PUZZLE KAMU -->
+                <img src="https://raw.githubusercontent.com/cargift/image/main/Picsart_26-02-16_11-29-05-972.png" alt="puzzle" class="icon-image" onerror="this.src='https://via.placeholder.com/150?text=Puzzle'">
+                <span class="icon-label">puzzle</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- watermark transparan -->
+    <div class="watermark">@foocl on telegram</div>
+
+    <!-- fallback: menampilkan placeholder jika ikon tidak muncul -->
+    <div style="display: none;">Ikon 1-4: preview repo, Ikon 5: image/main/Picsart_26-02-16_11-29-05-972.png — ganti URL jika perlu</div>
+</body>
+</html>
